@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+</style>
+    <meta charset="UTF-8">
+    <title>Message Classifier</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href="{{ url_for('Index') }}">GOOD SMS</a></li>
+
+  <li style="float:right"><a href="{{ url_for('bbc') }}">SPAM SMS</a></li>
+</ul>
+
+<div class="jumbotron" style="color:black">
+
+    <h1 style="color:black">
+
+        Classify the messages
+
+    </h1>
+
+</div>
+
+
+<div class="container">
+
+    {% for sub2,to2,from2,date2,desc2 in context %}
+
+
+    <div style="background-color:#d22725; border-style: solid">
+
+
+   
+    <p>Message : </p> {{desc2}}
+
+
+    </div>
+
+
+    {% endfor %}
+
+
+
+
+
+</div>
+
+
+</body>
+</html>
